@@ -14,7 +14,7 @@ import urllib.request
 import urllib.parse
 import configparser
 
-metadata_url="http://169.254.169.254/metadata/latest/scheduledevents"
+metadata_url="http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
 headers="{Metadata:true}"
 this_host=socket.gethostname()
 log_format = " %(asctime)s [%(levelname)s] %(message)s"
