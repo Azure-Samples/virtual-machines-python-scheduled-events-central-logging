@@ -24,5 +24,34 @@ However, there are cases where you wish to have a single endpoint from which you
 
 ## Running the sample
 You can run this sample interactively from your command prompt or shell window.
+1. Modify scheduledEventsInteractiveToolConfig.ini with your Event Hub connection string.
+2. Run the sample from your shell 
+    ```
+     python3 scheduledEventsInteractiveTool.py
+    ```
+    
+    A successful run will emit some info and debug data (which you can filter out):
 
-You can also schedule this utility to run periodically in the background with your platform's scheduled (e.g. cron) 
+   ```
+   2017-04-17 18:18:06,632 [DEBUG] Azure Scheduled Events Interactive Tool
+   2017-04-17 18:18:06,632 [DEBUG] get_scheduled_events was called
+   2017-04-17 18:18:06,639 [INFO] handle_scheduled_events was called with 0
+   2017-04-17 18:18:07,816 [DEBUG] send_to_event_hub returned
+   ```
+
+   In case a scheduled event is detected, the sample sends a notification to Event Hub and acknoledges the scheduled event.
+   ```
+   myuser@mysrv:~$ python3 scheduledEventsInteractiveTool.py
+   2017-04-17 18:30:35,169 [DEBUG] Azure Scheduled Events Interactive Tool
+   2017-04-17 18:30:35,169 [DEBUG] get_scheduled_events was called
+   2017-04-17 18:30:35,175 [INFO] handle_scheduled_events was called with 1
+   2017-04-17 18:30:35,175 [INFO] EventId: 762D06A2-8289-469B-AB27-4D26C9C745B3 Type: Redeploy Status: Scheduled Resource: _mysrv
+   2017-04-17 18:30:35,507 [DEBUG] send_to_event_hub returned
+   2017-04-17 18:30:35,507 [INFO] THIS host is scheduled for Redeploy not before Mon,_17_Apr_2017_18:40:06_GMT
+   Are you looking to acknowledge the event (y/n)? n
+
+   ```
+  You can also acknoledge the event from the sample. In this case, you ask Azure to move faster with the impact. 
+
+3. Check your Event Hub for messages. You can use [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) to check for the messages sent to Event Hub. 
+
