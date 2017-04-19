@@ -15,13 +15,13 @@ However, there are cases where you wish to have a single endpoint from which you
 
 
 ## Building the sample
-1. You will need an Event Hub created before runnign the sample. To do this, refer to the article [Create an IoT Hub through Azure Portal](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/#create-an-iot-hub).
+1. You will need an Event Hub created before running the sample. To do this, refer to the article [Create an IoT Hub through Azure Portal](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/#create-an-iot-hub).
 
 2. Copy the connection string for your Event Hub and paste it in the configuration file.
 
 3. At the end of the Event Hub connection string, add ";EntityPath=[your-eventhub-name]", where your-eventhub-name is the name of the event hub that will be handling the events.
 
-4. This sample was tested on PYthon 3.5 
+4. This sample was tested on Python 3.5 
 
 
 ## Running the sample
@@ -41,7 +41,7 @@ You can run this sample interactively from your command prompt or shell window.
    2017-04-17 18:18:07,816 [DEBUG] send_to_event_hub returned
    ```
 
-   In case a scheduled event is detected, the sample sends a notification to Event Hub and acknoledges the scheduled event.
+   In case a scheduled event is detected, the sample sends a notification to Event Hub and acknowledges the scheduled event.
    ```
    myuser@mysrv:~$ python3 scheduledEventsInteractiveTool.py
    2017-04-17 18:30:35,169 [DEBUG] Azure Scheduled Events Interactive Tool
@@ -53,7 +53,7 @@ You can run this sample interactively from your command prompt or shell window.
    Are you looking to acknowledge the event (y/n)? n
 
    ```
-  You can also acknoledge the event from the sample. In this case, you ask Azure to move faster with the impact. 
+  You can also acknowledge the event from the sample. In this case, you ask Azure to move faster with the impact. 
 
 3. Check your Event Hub for messages. You can use [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) to check for the messages sent to Event Hub. 
 
