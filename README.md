@@ -19,12 +19,14 @@ However, there are cases where you wish to have a single endpoint from which you
 
 2. Copy the connection string for your Event Hub and paste it in the configuration file.
 
-3. This sample was tested on PYthon 3.5 
+3. At the end of the Event Hub connection string, add ";EntityPath=[your-eventhub-name]", where your-eventhub-name is the name of the event hub that will be handling the events.
+
+4. This sample was tested on PYthon 3.5 
 
 
 ## Running the sample
 You can run this sample interactively from your command prompt or shell window.
-1. Modify scheduledEventsInteractiveToolConfig.ini with your Event Hub connection string.
+1. Modify scheduledEventsInteractiveToolConfig.ini with your Event Hub connection string and event hub name.
 2. Run the sample from your shell 
     ```
      python3 scheduledEventsInteractiveTool.py
