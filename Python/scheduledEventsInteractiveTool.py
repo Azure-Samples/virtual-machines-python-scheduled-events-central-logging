@@ -74,7 +74,8 @@ class EventHubMsgSender:
 
 def send_to_event_hub(eventHubMessage):
     ehMsgSender = EventHubMsgSender()
-    result = ehMsgSender.sendD2CMsg(str(eventHubMessage))
+    messageAsJson = json.dumps(eventHubMessage, ensure_ascii=False)
+    result = ehMsgSender.sendD2CMsg(messageAsJson)
     logger.debug('send_to_event_hub returned {}'.format(result))
 
 
@@ -89,7 +90,7 @@ def get_scheduled_events():
 def ack_event(evt):
     eventId = evt['EventId']
     logger.info('ack_event was called with eventID {}'.format(eventId))
-    ack_msg = '{"StartRequests":[{"EventId":"{}"}]}'.format(eventId)
+    ack_msg = '{{"StartRequests":[{{"EventId":"{}"}}]}}'.format(eventId)
     ack_msg = ack_msg.encode()
     res = urllib.request.urlopen(url=metadata_url, data=ack_msg).read()
     eventHubMessage = build_eventhub_message(
@@ -129,7 +130,7 @@ def handle_scheduled_events(data):
         if this_host in eventHubMessage['Resources']:
             eventId = evt['EventId']
             logger.info('THIS host ({}) is scheduled for {} not before {} (id: {})'.format(
-                this_host, eventHubMessage['EventType'], eventHubMessage['NotBefore']), eventId)
+                this_host, eventHubMessage['EventType'], eventHubMessage['NotBefore'], eventId))
             userAck = input('Are you looking to acknowledge the event (y/n)?')
             if userAck == 'y':
                 logger.debug('Acknowledging {}'.format(eventId))
