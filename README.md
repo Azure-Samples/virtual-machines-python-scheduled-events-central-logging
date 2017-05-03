@@ -15,9 +15,9 @@ However, there are cases where you wish to have a single endpoint from which you
 
 
 ## Building the sample
-1. You will need an Event Hub created before running the sample. To do this, refer to the article [Create an IoT Hub through Azure Portal](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/#create-an-iot-hub).
+1. You will need an Event Hub created before running the sample. To do this, refer to the article [Create an Event Hub through Azure Portal](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create).
 
-2. Copy the connection string for your Event Hub and paste it in the configuration file.
+2. Copy the connection string for your Event Hub and paste it in the configuration file. This is the 'RootManageSharedAccessKey' under Shared Access Policies.
 
 3. At the end of the Event Hub connection string, add ";EntityPath=[your-eventhub-name]", where your-eventhub-name is the name of the event hub that will be handling the events.
 
