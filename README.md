@@ -5,7 +5,7 @@ languages:
 products:
 - azure
 description: "The sample project demonstrates how to monitor upcoming events on multiple Virtual Machines by forwarding them to a single Event Hub."
-urlFragment: Collecting-Scheduled-Events-with-Event-Hub
+urlFragment: collecting-scheduled-events-with-event-hub
 ---
 
 # Collecting Scheduled Events with Event Hub  
