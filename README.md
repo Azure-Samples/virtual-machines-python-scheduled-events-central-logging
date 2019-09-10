@@ -1,7 +1,11 @@
 ---
-services: virtual-machines
-platforms: python
-author: zivraf
+page_type: sample
+languages:
+- python
+products:
+- azure
+description: "The sample project demonstrates how to monitor upcoming events on multiple Virtual Machines by forwarding them to a single Event Hub."
+urlFragment: Collecting-Scheduled-Events-with-Event-Hub
 ---
 
 # Collecting Scheduled Events with Event Hub  
